@@ -6,6 +6,17 @@ using System.Threading.Tasks;
 
 namespace _16._10._2022___C_sharp__HW
 {
+    // Never used
+    enum DayOfWeekEnum:byte
+    {
+        monday,
+        tuesday,
+        wednesday,
+        thursday,
+        friday,
+        saturday,
+        sunday
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -13,33 +24,33 @@ namespace _16._10._2022___C_sharp__HW
 
             DateTime timeToCompare = DateTime.Now;
 
-            Console.Write("Введите год от 1970 по наше время: ");
+            Console.Write("Please, enter Year starts from 1970 until present days: ");
             int startYear = int.Parse(Console.ReadLine());
 
             if(startYear < 1970 || startYear > timeToCompare.Year)
             {
-                Console.WriteLine("Неверный год");
+                Console.WriteLine("Wrong year");
                 Console.ReadKey();
                 return;
 
             }
 
-            Console.Write("Введите месяц (01-12): ");
+            Console.Write("Enter month (01-12): ");
             int startMonth = int.Parse(Console.ReadLine());
 
             if(startMonth < 1 || startMonth > 12)
             {
-                Console.WriteLine("Неверный месяц");
+                Console.WriteLine("Wrong month");
                 Console.ReadKey();
                 return;
             }
 
-            Console.Write("Введите день в (01-31): ");
+            Console.Write("Enter day (01-31): ");
             int startDay = int.Parse(Console.ReadLine());
 
             if (startDay < 1 || startDay > 31)
             {
-                Console.WriteLine("Неверный день");
+                Console.WriteLine("Wrong day");
                 Console.ReadKey();
                 return;
             }
@@ -47,7 +58,7 @@ namespace _16._10._2022___C_sharp__HW
 
             bool myException ()
             {
-                // Переменная на проверку високосного года
+                // Variable to check Leap Year
                 bool isLeapYear = false;
 
                 if(startYear % 4 == 0)
@@ -73,7 +84,9 @@ namespace _16._10._2022___C_sharp__HW
                     throw new ArgumentOutOfRangeException(nameof(startDay), $"Wrong date: {startDay}");
                 }
                 System.DateTime timeToWorkWith = new System.DateTime(startYear, startMonth, startDay);
+
                 string dayOfWeek = timeToWorkWith.DayOfWeek.ToString();
+
                 Console.WriteLine($"День недели: {dayOfWeek}");
                 Console.ReadKey();
             }
